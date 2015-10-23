@@ -36,7 +36,10 @@ public function index(){
 
 		else{
 			$data['data']=$this->Mdl_users->getabout();
+			$this->load->view('header');
 			$this->load->view('index',$data);
+			//$this->load->view('demo');
+			$this->load->view('footer');
 		}
   }
 
@@ -61,7 +64,9 @@ public function _insertAbout($data){
 
 public function servicesView(){
 	$data['data']=$this->Mdl_users->getservices();
+	$this->load->view('header');
 	 $this->load->view('services_table',$data);
+	 $this->load->view('footer');
 }
 
 
@@ -79,8 +84,9 @@ public function services(){
 
 			}
 			else{
-				
+				$this->load->view('header');
                  $this->load->view('services');
+                 $this->load->view('footer');
 			}
 		   }
 
@@ -88,7 +94,9 @@ public function services(){
 public function servicesUpdateShow($id){
 
  $data['data']=$this->Mdl_users->servicesUpdateShow($id);
+ $this->load->view('header');
   $this->load->view('servicesupdate',$data);
+  $this->load->view('footer');
 }
 public function updateServies($id){
 
@@ -134,21 +142,26 @@ public function research(){
 					   }
 		}
 		else{
-      
+           $this->load->view('header');
               $this->load->view('research');
+              $this->load->view('footer');
 
 		}
     }
 public function getResearch(){
 	$data['data']=$this->Mdl_users->getResearch();
+	$this->load->view('header');
   $this->load->view('research_table',$data);
+  $this->load->view('footer');
 }
 
 
 public function researchUpdateShow($id){
 
  $data['data']=$this->Mdl_users->researchUpdateShow($id);
+ $this->load->view('header');
   $this->load->view('researchupdate',$data);
+  $this->load->view('footer');
 }
 
 
@@ -195,8 +208,9 @@ public function capabilities(){
 					   }
 		}
 		else{
-      
+              $this->load->view('header');
               $this->load->view('capabilities');
+              $this->load->view('footer');
 
 		}
     }
@@ -206,7 +220,9 @@ public function capabilities(){
 public function capabilitiesUpdateShow($id){
 
  $data['data']=$this->Mdl_users->capabilitiesUpdateShow($id);
+ $this->load->view('header');
   $this->load->view('capabilitiesupdate',$data);
+  $this->load->view('footer');
 }
 
 
@@ -251,8 +267,9 @@ public function strength(){
 					   }
 		}
 		else{
-      
+            $this->load->view('header');
               $this->load->view('strength');
+              $this->load->view('footer');
 
 		}
     }
@@ -262,7 +279,9 @@ public function strength(){
 public function strengthUpdateShow($id){
 
  $data['data']=$this->Mdl_users->strengthUpdateShow($id);
+ $this->load->view('header');
   $this->load->view('strengthupdate',$data);
+  $this->load->view('footer');
 }
 
 
@@ -307,8 +326,9 @@ public function contact(){
 					   }
 		}
 		else{
-      
+             $this->load->view('header');
               $this->load->view('contact');
+              $this->load->view('footer');
 
 		}
     }
@@ -318,7 +338,9 @@ public function contact(){
 public function contactUpdateShow(){
 
  $data['data']=$this->Mdl_users->contactUpdateShow();
+ $this->load->view('header');
   $this->load->view('contactupdate',$data);
+  $this->load->view('footer');
 }
 
 
@@ -365,8 +387,9 @@ public function contactUs(){
 					   }
 		}
 		else{
-      
+            $this->load->view('header');
               $this->load->view('contactUs');
+              $this->load->view('footer');
 
 		}
     }
@@ -374,7 +397,9 @@ public function contactUs(){
 public function contactUsShow(){
 
  $data['data']=$this->Mdl_users->contactUsShow();
+ $this->load->view('header');
   $this->load->view('',$data);
+  $this->load->view('footer');
 }
 
 }

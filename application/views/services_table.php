@@ -7,7 +7,50 @@
  */ 
 //print_r($data);
 ?>
-<h2>Services Table</h2> <a href="<?php echo base_url().'users/contactUpdateShow';?>">Contact Update</a>
+
+
+
+      <div class="templatemo-content-wrapper">
+        <div class="templatemo-content">
+       <!-- ...................................... -->
+
+
+
+
+              <div class="table-responsive">
+                <h4 class="margin-bottom-15">Servics  Table </h4>
+                <table class="table table-striped table-hover table-bordered">
+                  <thead>
+                    <tr>
+                     
+                      <th>Servies Name</th>
+                      
+                      <th>Edit</th>
+                      
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach ($data as $row) {
+
+ ?>
+                    <tr>
+                      
+                      <td><?php echo $row['rpi_services_name']; ?></td>
+                      
+                      <td><a href="<?php echo base_url().'users/servicesUpdateShow/'.$row['rpi_services_id']; ?>" class="btn btn-default">Edit</a></td>                    
+                      
+                      <td><a href="<?php echo base_url().'users/deleteServices/'.$row['rpi_services_id']; ?>" class="btn btn-link">Delete</a></td>
+                    </tr>
+                   <?php } ?>
+                   
+                    
+                                  
+                  </tbody>
+                </table>
+              </div>
+<!-- 
+ <a href="<?php echo base_url().'users/contactUpdateShow';?>">Contact Update</a>
 <table>
 	<a href="<?php echo base_url().'users/services'; ?>">Add Services</a> <a href="<?php echo base_url();?>">About Update</a>
 <tr>
@@ -27,3 +70,25 @@
 </tr>
 <?php } ?>
 </table>
+ -->
+
+      
+<!-- ........................................................ -->
+
+        </div>
+      </div> -
+      <!-- Modal -->
+      <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
+            </div>
+            <div class="modal-footer">
+              <a href="sign-in.html" class="btn btn-primary">Yes</a>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
