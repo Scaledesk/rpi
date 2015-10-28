@@ -8,6 +8,10 @@
 
 ?>
 
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script> 
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet"> 
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> 
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
       <div class="templatemo-content-wrapper">
         <div class="templatemo-content">
@@ -17,8 +21,8 @@
 <h2>Strength Add</h2>
 <form action="<?php echo base_url().'users/strength'; ?>" method="post">
 	
-<input type="text" name="strength_name" />
 
+ <textarea class="form-control"  id="summernote" name="strength_name"></textarea>
 
 <input  type="submit" name="submit" value="submit">
 </form>
@@ -42,3 +46,15 @@
           </div>
         </div>
       </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('#summernote').summernote();
+});
+
+</script>
+
+<link href="<?php echo base_url(); ?>/assets/summernote/dist/summernote.css" rel="stylesheet">
+<script src="<?php echo base_url(); ?>/assets/summernote/dist/summernote.min.js"></script>
+

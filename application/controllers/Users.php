@@ -35,7 +35,7 @@ public function index(){
 		}
 
 		else{
-			$data['data']=$this->Mdl_users->getabout();
+			$data['data']=$this->Mdl_users->getAbout();
 			$this->load->view('header');
 			$this->load->view('index',$data);
 			//$this->load->view('demo');
@@ -63,7 +63,7 @@ public function _insertAbout($data){
 }
 
 public function servicesView(){
-	$data['data']=$this->Mdl_users->getservices();
+	$data['data']=$this->Mdl_users->getServices();
 	$this->load->view('header');
 	 $this->load->view('services_table',$data);
 	 $this->load->view('footer');
@@ -75,7 +75,7 @@ public function services(){
 		     $data=$this->input->post();
 				if($this->Mdl_users->insertServices($data)){
 			       echo "Add Services Successful";
-			       redirect('users/servicesView');
+			       redirect('users/services');
 				}
 			   else{
 			   	echo "Add Services  not Successful";
@@ -190,7 +190,72 @@ if($this->Mdl_users->deleteResearch($id)){
 			   	echo "Delete Research  not Successful";
 			   }
 }
+/*..................................*/
 
+
+public function researchTool(){
+
+		  if (strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
+		  	
+		  
+			  $data=$this->input->post();
+						if($this->Mdl_users->insertResearchTool($data)){
+					       echo "Add Research Successful";
+					       redirect('users/getResearchTool');
+						}
+					   else{
+					   	echo "Add Research  not Successful";
+					   }
+		}
+		else{
+           $this->load->view('header');
+              $this->load->view('research_tool');
+              $this->load->view('footer');
+
+		}
+    }
+public function getResearchTool(){
+	$data['data']=$this->Mdl_users->getResearchTool();
+	$this->load->view('header');
+  $this->load->view('research_tool_table',$data);
+  $this->load->view('footer');
+}
+
+
+public function researchUpdateShowTool($id){
+
+ $data['data']=$this->Mdl_users->researchUpdateShowTool($id);
+ $this->load->view('header');
+  $this->load->view('research_tool_update',$data);
+  $this->load->view('footer');
+}
+
+
+public function updateResearchTool($id){
+
+$data=$this->input->post();
+if($this->Mdl_users->updateResearchTool($id,$data)){
+			       echo "Update Research Successful";
+			       redirect('users/getResearchTool');
+				}
+			   else{
+			   	echo "Update Research  not Successful";
+			   }
+}
+
+
+
+public function deleteResearchTool($id){
+
+
+if($this->Mdl_users->deleteResearchTool($id)){
+			       echo "Delete Research Successful";
+			       redirect('users/getResearchTool');
+				}
+			   else{
+			   	echo "Delete Research  not Successful";
+			   }
+}
 
 
 
@@ -402,4 +467,43 @@ public function contactUsShow(){
   $this->load->view('footer');
 }
 
+
+
+
+public function aboutShow(){
+	$data['about']=$this->Mdl_users->getAbout();
+	$this->load->view('header/header');
+	$this->load->view('theme/about',$data);
+	$this->load->view('header/footer');
 }
+
+public function servicesShow(){
+
+$data['services']=$this->Mdl_users->getServices();
+	$this->load->view('header/header');
+	$this->load->view('theme/services',$data);
+	$this->load->view('header/footer');
+
+}
+public function researchShow(){
+	$data['research']=$this->Mdl_users->getResearch();
+	$this->load->view('header/header');
+	$this->load->view('theme/research',$data);
+	$this->load->view('header/footer');
+}
+public function researchToolShow(){
+	$data['researchTool']=$this->Mdl_users->getResearchTool();
+	$this->load->view('header/header');
+	$this->load->view('theme/research_tool',$data);
+	$this->load->view('header/footer');
+}
+public function strengthShow(){
+	$data['strength']=$this->Mdl_users->getStrength();
+	$this->load->view('header/header');
+	$this->load->view('theme/strength',$data);
+	$this->load->view('header/footer');
+}
+}
+
+
+

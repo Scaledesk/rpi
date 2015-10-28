@@ -18,15 +18,15 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> 
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
-<h2>Research Add</h2>
+<h2>Research Tool Add</h2>
           <div class="row">
             <div class="col-md-12">
-              <form role="form" id="templatemo-preferences-form" action="<?php echo base_url().'users/research'; ?>" method="post">
+              <form role="form" id="templatemo-preferences-form" action="<?php echo base_url().'users/researchTool'; ?>" method="post">
                 <div class="row">
                   <div class="col-md-12 margin-bottom-15">
-                    <label for="firstName" class="control-label">Research Name</label>
-                    <textarea class="form-control"  id="summernote" name="research_name"></textarea>
-                    
+                    <label for="firstName" class="control-label">Research Tool  Name</label>
+                    <!-- <textarea class="form-control"  id="summernote" ></textarea> -->
+                    <input type="text" name="research_tool_name" class="input">
                     <input  type="submit" name="submit" class="btn btn-primary"value="submit">  
 
                     

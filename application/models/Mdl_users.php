@@ -9,7 +9,7 @@ class Mdl_users extends CI_Model
 {
 
 
-public function getabout(){
+public function getAbout(){
 
   $data=$this->db->get('rpi_about');
   return $data->result_array();
@@ -71,7 +71,7 @@ public function getabout(){
   }
 
 
-public function getservices(){
+public function getServices(){
   $data=$this->db->get('rpi_services')->result_array();
   return $data;
 }
@@ -164,6 +164,71 @@ if($this->db->where('rpi_research_id',$id)->delete('rpi_research')){
         }
         else{
         	return flase;
+        }
+
+}
+/*.............................................*/
+
+
+  public function insertResearchTool($data){
+
+
+             $data = [
+            'rpi_research_tool_name' => $data['research_tool_name']
+
+        ];
+         
+      if($this->db->insert('rpi_research_tool',$data)){
+
+        return true;
+     }
+       else{
+
+     return flase;
+    }
+
+  }
+
+public function getResearchTool(){
+
+  $data=$this->db->get('rpi_research_tool')->result_array();
+  return $data;
+}
+
+  public function researchUpdateShowTool($id){
+
+    $data=$this->db->where('rpi_research_tool_id',$id)->get('rpi_research_tool')->result_array();
+
+    return $data;
+  }
+
+
+public function updateResearchTool($id,$data){
+
+/*print_r($data['research_tool_name']);
+die();*/
+ $data = [
+            'rpi_research_tool_name' => $data['research_tool_name']
+
+        ];
+        if($this->db->where('rpi_research_tool_id',$id)->update('rpi_research_tool',$data)){
+          return true;
+        }
+        else{
+          return flase;
+        }
+}
+
+
+
+
+public function deleteResearchTool($id){
+
+if($this->db->where('rpi_research_tool_id',$id)->delete('rpi_research_tool')){
+          return true;
+        }
+        else{
+          return flase;
         }
 
 }
@@ -386,6 +451,13 @@ public function insertContactUs($data){
   public function contactUsShow(){
 
     $data=$this->db->get('rpi_contact_us')->result_array();
+
+    return $data;
+  }
+
+
+  public function getStrength(){
+    $data=$this->db->get('rpi_strength')->result_array();
 
     return $data;
   }

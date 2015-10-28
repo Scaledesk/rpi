@@ -15,7 +15,7 @@
 
 
               <div class="table-responsive">
-                <h4 class="margin-bottom-15">Research  Table  <h6><a href="<?php echo base_url().'users/research/'; ?>">Add</a></h6></h4>  
+                <h4 class="margin-bottom-15">Research Tool Table  <h6><a href="<?php echo base_url().'users/researchTool/'; ?>">Add</a></h6></h4>  
                 <table class="table table-striped table-hover table-bordered">
                   <thead>
                     <tr>
@@ -35,11 +35,11 @@
  ?>
                     <tr>
                       
-                      <td><?php echo $row['rpi_research_name']; ?></td>
+                      <td><?php echo $row['rpi_research_tool_name']; ?></td>
                       
-                      <td><a href="<?php echo base_url().'users/researchUpdateShow/'.$row['rpi_research_id']; ?>" class="btn btn-default">Edit</a></td>                    
+                      <td><a href="<?php echo base_url().'users/researchUpdateShowTool/'.$row['rpi_research_tool_id']; ?>" class="btn btn-default">Edit</a></td>                    
                       
-                      <td><a href="<?php echo base_url().'users/deleteResearch/'.$row['rpi_research_id']; ?>" class="btn btn-link">Delete</a></td>
+                      <td><a href="<?php echo base_url().'users/deleteResearchTool/'.$row['rpi_research_tool_id']; ?>" class="btn btn-link">Delete</a></td>
                     </tr>
                    <?php } ?>
                    
