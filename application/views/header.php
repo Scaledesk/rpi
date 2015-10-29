@@ -43,7 +43,8 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
                   <li><a href="<?php echo base_url().'users/getResearch'; ?>">Research</a>
                   <li> <a href="<?php echo base_url().'users/contactUpdateShow';?>">Contact Update</a>
                  <li>  <a href="<?php echo base_url().'users/servicesView'; ?>">Services</a>
-                  <li> <a href="<?php echo base_url();?>">About Update</a>
+                  <li> <a href="<?php echo base_url().'users/admin';?>">About Update</a>
+                  <li> <a href="<?php echo base_url().'users/strengthUpdateShow';?>">Strength</a>
              <!--  <li><a href="#">Aenean</a></li>
               <li><a href="#">Pellentesque</a></li>
               <li><a href="#">Congue</a></li>             

@@ -1,5 +1,5 @@
 	<footer>
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="widget">
@@ -47,7 +47,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div id="sub-footer">
 		<div class="container">
 			<div class="row">

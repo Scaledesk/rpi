@@ -31,17 +31,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="img\logo.png" alt="logo"></a>
+                    </button> <!-- <img class="img-responsive" src="<?php echo base_url();?>assets\img\service3.jpg" alt="">   -->
+                    <a class="navbar-brand" href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets\img\logo.jpg" style="height:100%" salt="logo"></a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li> 
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li class="active"><a href="<?php echo base_url();?>">Home</a></li> 
+						<li><a href="<?php echo base_url().'users/aboutShow';?>">About Us</a></li>
+						<li><a href="<?php echo base_url().'users/servicesShow';?>">Services</a></li>
+                        <li><a href="<?php echo base_url().'users/researchShow';?>">Research</a></li>
+                        <li><a href="<?php echo base_url().'users/strengthShow';?>">Strength</a></li>
+                        <li><a href="<?php echo base_url().'users/sterngth';?>">Contact</a></li>
                     </ul>
                 </div>
             </div>

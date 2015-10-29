@@ -318,9 +318,9 @@ if($this->db->where('rpi_capabilities_id',$id)->delete('rpi_capabilities')){
 
 
 
-  public function strengthUpdateShow($id){
+  public function strengthUpdateShow(){
 
-  	$data=$this->db->where('rpi_strength_id',$id)->get('rpi_strength')->result_array();
+  	$data=$this->db->get('rpi_strength')->result_array();
 
   	return $data;
   }
@@ -431,7 +431,7 @@ public function insertContactUs($data){
             'rpi_contact_us_email' => $data['email'], 
             'rpi_contact_us_name' => $data['name'],
             'rpi_contact_us_mobile' => $data['mobile'],
-            'rpi_contact_us_massage' => $data['massage']
+            'rpi_contact_us_message' => $data['message']
             
 
         ];

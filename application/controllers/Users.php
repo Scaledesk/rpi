@@ -18,19 +18,19 @@ class Users extends CI_controller{
     }
 
 
-public function index(){
+public function admin(){
 
 
 		if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
 
 			if($this->_insertAbout($this->input->post())){
 				echo "update  Successful";
-				redirect(base_url());
+				redirect(base_url().'users/admin');
 			}
 			else{
 
 				echo "update not Successful";
-				redirect(base_url());
+				redirect(base_url().'users/admin');
 			}
 		}
 
@@ -341,9 +341,9 @@ public function strength(){
 
 
 
-public function strengthUpdateShow($id){
+public function strengthUpdateShow(){
 
- $data['data']=$this->Mdl_users->strengthUpdateShow($id);
+ $data['data']=$this->Mdl_users->strengthUpdateShow();
  $this->load->view('header');
   $this->load->view('strengthupdate',$data);
   $this->load->view('footer');
@@ -355,6 +355,7 @@ public function updateStrength($id){
 $data=$this->input->post();
 if($this->Mdl_users->updateStrength($id,$data)){
 			       echo "Update Strength Successful";
+			       redirect(base_url().'users/admin');
 				}
 			   else{
 			   	echo "Update Strength  not Successful";
@@ -445,10 +446,10 @@ public function contactUs(){
 		  
 			  $data=$this->input->post();
 						if($this->Mdl_users->insertContactUs($data)){
-					       echo "Add Contact Successful";
+					       echo "Your message has been sent to us";
 						}
 					   else{
-					   	echo "Add Contact  not Successful";
+					   	echo "There was an error sending your message";
 					   }
 		}
 		else{
@@ -462,9 +463,9 @@ public function contactUs(){
 public function contactUsShow(){
 
  $data['data']=$this->Mdl_users->contactUsShow();
- $this->load->view('header');
-  $this->load->view('',$data);
-  $this->load->view('footer');
+ $this->load->view('header/header');
+  $this->load->view('contactUs',$data);
+  $this->load->view('header/footer');
 }
 
 
@@ -503,6 +504,20 @@ public function strengthShow(){
 	$this->load->view('theme/strength',$data);
 	$this->load->view('header/footer');
 }
+public function capabilitiesShow(){
+	$data['strength']=$this->Mdl_users->getStrength();
+	$this->load->view('header/header');
+	$this->load->view('theme/strength',$data);
+	$this->load->view('header/footer');
+}
+
+public function home(){
+  $data['about']=$this->Mdl_users->getAbout();
+	$this->load->view('header/header');
+	$this->load->view('theme/index',$data);
+	$this->load->view('header/footer');
+}
+
 }
 
 
