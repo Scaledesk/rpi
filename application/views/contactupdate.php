@@ -24,7 +24,7 @@
                     <label for="contact_number" class="control-label" >Mob. Number </label>
                     <input class="form-control"type="text" name="contact_number" value="<?php echo $data[0]['rpi_contact_number']; ?>" />
                     <label for="contact_email" class="control-label">Email</label>
-                    <input class="form-control" type="text" name="contact_email" value="<?php echo $data[0]['rpi_contact_email']; ?>" />
+                    <input class="form-control" type="email" name="contact_email" value="<?php echo $data[0]['rpi_contact_email']; ?>" />
                     <label for="contact_address" class="control-label">Address</label>
                     <textarea class="form-control" type="text" name="contact_address" ><?php echo $data[0]['rpi_contact_address']; ?></textarea>
                    

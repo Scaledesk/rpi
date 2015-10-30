@@ -1,6 +1,6 @@
  <footer class="templatemo-footer">
         <div class="templatemo-copyright">
-          <p>Copyright &copy; 2084 Your Company Name</p>
+          <p> Webo Services</p>
         </div>
       </footer>
     </div>

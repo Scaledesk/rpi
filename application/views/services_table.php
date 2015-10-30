@@ -18,12 +18,13 @@
 
 
               <div class="table-responsive">
-                <h4 class="margin-bottom-15">Servics  Table </h4>
+                <h4 class="margin-bottom-15">Services  Table </h4>
+                <a href="<?php echo base_url().'users/services';?>">Add Services</a>
                 <table class="table table-striped table-hover table-bordered">
                   <thead>
                     <tr>
                      
-                      <th>Servies Name</th>
+                      <th>Services Name</th>
                       
                       <th>Edit</th>
                       

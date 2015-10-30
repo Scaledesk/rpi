@@ -1,16 +1,22 @@
 	<footer>
-	<!-- <div class="container">
+	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading">Our Contact</h5>
+					<h5 class="widgetheading">Contact Us</h5>
 					<address>
-					<strong>Target company Inc</strong><br>
-					JC Main Road, Near Silnile tower<br>
-					 Pin-21542 NewYork US.</address>
+					<strong>RPI - India</strong><br>
+					<p> 301, 3rd floor, 5 Pusa Road, New Delhi<br>
+						Contact Person: James Washington <br> 
+						 
+						
+						</p>
+
+
+					 </address>
 					<p>
-						<i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
-						<i class="icon-envelope-alt"></i> email@domainname.com
+						<i class="icon-phone"></i>Contact number: 9811926888 <br>
+						<i class="icon-envelope-alt"></i> Contact Email Id: jamesrpi@respac.com
 					</p>
 				</div>
 			</div>
@@ -18,15 +24,23 @@
 				<div class="widget">
 					<h5 class="widgetheading">Quick Links</h5>
 					<ul class="link-list">
-						<li><a href="#">Latest Events</a></li>
+					 
+			            <li class="active"><a href="<?php echo base_url();?>">Home</a></li> 
+						<li><a href="<?php echo base_url().'users/aboutShow';?>">About Us</a></li>
+						<li><a href="<?php echo base_url().'users/servicesShow';?>">Services</a></li>
+                        <li><a href="<?php echo base_url().'users/researchShow';?>">Research</a></li>
+                        <li><a href="<?php echo base_url().'users/strengthShow';?>">Strength</a></li>
+                        <li><a href="<?php echo base_url().'users/contactUsShow';?>">Contact</a></li>
+						<!-- <li><a href="#">Latest Events</a></li>
 						<li><a href="#">Terms and conditions</a></li>
 						<li><a href="#">Privacy policy</a></li>
 						<li><a href="#">Career</a></li>
-						<li><a href="#">Contact us</a></li>
+						<li><a href="#">Contact us</a></li> -->
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-3">
+
+			<!-- <div class="col-lg-3">
 				<div class="widget">
 					<h5 class="widgetheading">Latest posts</h5>
 					<ul class="link-list">
@@ -45,16 +59,16 @@
 						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
 					</ul>
 				</div>
-			</div>
+			</div> -->
 		</div>
-	</div> -->
+	</div>
 	<div id="sub-footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="copyright">
 						<p>
-							<span>&copy; Target 2014 All right reserved. By </span><a href="http://webthemez.com" target="_blank">WebThemez</a>
+							<span>&copy; The Rsearch Pacific Group 2015 All right reserved. Designed and Maintined By </span><a href="http://www.weboservices.com" target="_blank">Webo Services</a>
 						</p>
 					</div>
 				</div>

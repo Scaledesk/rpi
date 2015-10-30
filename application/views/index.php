@@ -21,11 +21,11 @@
 //print_r($data);
 ?>
 <h2>About input</h2> 
-
+<!-- 
 <a href="<?php echo base_url().'users/getResearch'; ?>"> Research</a>
  <a href="<?php echo base_url().'users/contactUpdateShow';?>">Contact Update</a>
  <a href="<?php echo base_url().'users/servicesView'; ?>">Services</a>
- <a href="<?php echo base_url();?>">About Update</a>
+ <a href="<?php echo base_url();?>">About Update</a> -->
 <form action="<?php echo base_url().'users/admin'; ?>" method="post">
 
 <script type="text/javascript">

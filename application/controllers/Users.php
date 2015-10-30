@@ -19,8 +19,8 @@ class Users extends CI_controller{
 
 
 public function admin(){
-
-
+    
+if($this->session->userdata("admin")){
 		if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
 
 			if($this->_insertAbout($this->input->post())){
@@ -43,8 +43,48 @@ public function admin(){
 		}
   }
 
+else{
+	redirect('users/login');
+}
+}
 
 
+public function login(){
+
+	if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
+	   $data=$this->input->post();
+   
+/*
+       echo  $data['password'];
+       die();*/
+		   if($data['password']=='password'){
+
+		   	$this->session->set_userdata('admin','admin');
+		   	redirect('users/admin');
+
+		   }
+		   else{
+		   	 $this->session->set_flashdata('msg', 'Your Users and password not match');
+		   	redirect(base_url().'users/login');
+		   }
+
+
+
+   }
+   else{
+            
+			$this->load->view('login');
+			
+   }
+
+}
+
+public function logout(){
+
+        $this->session->sess_destroy();
+        redirect('users/login');
+   
+}
 
 public function _insertAbout($data){
 
@@ -63,14 +103,20 @@ public function _insertAbout($data){
 }
 
 public function servicesView(){
+	if($this->session->userdata("admin")){
 	$data['data']=$this->Mdl_users->getServices();
 	$this->load->view('header');
 	 $this->load->view('services_table',$data);
 	 $this->load->view('footer');
+	}
+	else{
+		redirect('users/login');
+	}
 }
 
 
 public function services(){
+	if($this->session->userdata("admin")){
 	if (strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
 		     $data=$this->input->post();
 				if($this->Mdl_users->insertServices($data)){
@@ -88,17 +134,29 @@ public function services(){
                  $this->load->view('services');
                  $this->load->view('footer');
 			}
-		   }
+			}
+	else{
+		redirect('users/login');
+	}
+
+ }
 
 
 public function servicesUpdateShow($id){
 
+if($this->session->userdata("admin")){
  $data['data']=$this->Mdl_users->servicesUpdateShow($id);
  $this->load->view('header');
   $this->load->view('servicesupdate',$data);
   $this->load->view('footer');
+
+  }
+	else{
+		redirect('users/login');
+	}
 }
 public function updateServies($id){
+if($this->session->userdata("admin")){
 
 $data=$this->input->post();
 if($this->Mdl_users->updateServices($id,$data)){
@@ -109,10 +167,14 @@ if($this->Mdl_users->updateServices($id,$data)){
 			   	echo "Update Services  not Successful";
 			   	redirect('users/servicesView');
 			   }
+			   }
+	else{
+		redirect('users/login');
+	}
 }
 
 public function deleteServices($id){
-
+if($this->session->userdata("admin")){
 
 if($this->Mdl_users->deleteServices($id)){
 			       echo "Delete Services Successful";
@@ -122,6 +184,10 @@ if($this->Mdl_users->deleteServices($id)){
 			   	echo "Delete Services  not Successful";
 			   	redirect('users/servicesView');
 			   }
+			}
+			   else{
+		redirect('users/login');
+	}
 }
 
 
@@ -129,6 +195,7 @@ if($this->Mdl_users->deleteServices($id)){
 
 public function research(){
 
+if($this->session->userdata("admin")){
 		  if (strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
 		  	
 		  
@@ -147,25 +214,43 @@ public function research(){
               $this->load->view('footer');
 
 		}
+      }
+		else{
+		redirect('users/login');
+	}
     }
 public function getResearch(){
+	if($this->session->userdata("admin")){
+	
 	$data['data']=$this->Mdl_users->getResearch();
 	$this->load->view('header');
   $this->load->view('research_table',$data);
   $this->load->view('footer');
+
+   }
+		else{
+		redirect('users/login');
+	}
+ 
 }
 
 
 public function researchUpdateShow($id){
 
+if($this->session->userdata("admin")){
  $data['data']=$this->Mdl_users->researchUpdateShow($id);
  $this->load->view('header');
   $this->load->view('researchupdate',$data);
   $this->load->view('footer');
+   }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 public function updateResearch($id){
+	if($this->session->userdata("admin")){
 
 $data=$this->input->post();
 if($this->Mdl_users->updateResearch($id,$data)){
@@ -175,12 +260,18 @@ if($this->Mdl_users->updateResearch($id,$data)){
 			   else{
 			   	echo "Update Research  not Successful";
 			   }
+
+			    }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 
 public function deleteResearch($id){
 
+if($this->session->userdata("admin")){
 
 if($this->Mdl_users->deleteResearch($id)){
 			       echo "Delete Research Successful";
@@ -189,12 +280,18 @@ if($this->Mdl_users->deleteResearch($id)){
 			   else{
 			   	echo "Delete Research  not Successful";
 			   }
+
+			    }
+		else{
+		redirect('users/login');
+	}
 }
 /*..................................*/
 
 
 public function researchTool(){
 
+if($this->session->userdata("admin")){
 		  if (strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
 		  	
 		  
@@ -213,26 +310,39 @@ public function researchTool(){
               $this->load->view('footer');
 
 		}
+		  }
+		else{
+		redirect('users/login');
+	}
     }
 public function getResearchTool(){
+	if($this->session->userdata("admin")){
 	$data['data']=$this->Mdl_users->getResearchTool();
 	$this->load->view('header');
   $this->load->view('research_tool_table',$data);
   $this->load->view('footer');
+  }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 public function researchUpdateShowTool($id){
-
+if($this->session->userdata("admin")){
  $data['data']=$this->Mdl_users->researchUpdateShowTool($id);
  $this->load->view('header');
   $this->load->view('research_tool_update',$data);
   $this->load->view('footer');
+   }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 public function updateResearchTool($id){
-
+if($this->session->userdata("admin")){
 $data=$this->input->post();
 if($this->Mdl_users->updateResearchTool($id,$data)){
 			       echo "Update Research Successful";
@@ -241,13 +351,18 @@ if($this->Mdl_users->updateResearchTool($id,$data)){
 			   else{
 			   	echo "Update Research  not Successful";
 			   }
+
+			   }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 
 public function deleteResearchTool($id){
 
-
+if($this->session->userdata("admin")){
 if($this->Mdl_users->deleteResearchTool($id)){
 			       echo "Delete Research Successful";
 			       redirect('users/getResearchTool');
@@ -255,11 +370,16 @@ if($this->Mdl_users->deleteResearchTool($id)){
 			   else{
 			   	echo "Delete Research  not Successful";
 			   }
+			      }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 
 public function capabilities(){
+	if($this->session->userdata("admin")){
 
 		  if (strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
 		  	
@@ -278,21 +398,31 @@ public function capabilities(){
               $this->load->view('footer');
 
 		}
+		  }
+		else{
+		redirect('users/login');
+	}
     }
 
 
 
 public function capabilitiesUpdateShow($id){
+	if($this->session->userdata("admin")){
 
  $data['data']=$this->Mdl_users->capabilitiesUpdateShow($id);
  $this->load->view('header');
   $this->load->view('capabilitiesupdate',$data);
   $this->load->view('footer');
+  }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 public function updateCapabilities($id){
 
+if($this->session->userdata("admin")){
 $data=$this->input->post();
 if($this->Mdl_users->updateCapabilities($id,$data)){
 			       echo "Update Capabilities Successful";
@@ -300,19 +430,27 @@ if($this->Mdl_users->updateCapabilities($id,$data)){
 			   else{
 			   	echo "Update Capabilities  not Successful";
 			   }
+			   }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 
 public function deleteCapabilities($id){
 
-
+if($this->session->userdata("admin")){
 if($this->Mdl_users->deleteCapabilities($id)){
 			       echo "Delete Capabilities Successful";
 				}
 			   else{
 			   	echo "Delete Capabilities  not Successful";
 			   }
+			    }
+		else{
+		redirect('users/login');
+	}
 }
 
 
@@ -320,6 +458,7 @@ if($this->Mdl_users->deleteCapabilities($id)){
 
 public function strength(){
 
+if($this->session->userdata("admin")){
 		  if (strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
 		  	
 		  
@@ -337,21 +476,30 @@ public function strength(){
               $this->load->view('footer');
 
 		}
+		 }
+		else{
+		redirect('users/login');
+	}
     }
 
 
 
 public function strengthUpdateShow(){
 
+if($this->session->userdata("admin")){
  $data['data']=$this->Mdl_users->strengthUpdateShow();
  $this->load->view('header');
   $this->load->view('strengthupdate',$data);
   $this->load->view('footer');
+  }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 public function updateStrength($id){
-
+if($this->session->userdata("admin")){
 $data=$this->input->post();
 if($this->Mdl_users->updateStrength($id,$data)){
 			       echo "Update Strength Successful";
@@ -360,26 +508,35 @@ if($this->Mdl_users->updateStrength($id,$data)){
 			   else{
 			   	echo "Update Strength  not Successful";
 			   }
+
+ }
+		else{
+		redirect('users/login');
+	}			   
 }
 
 
 
 public function deleteStrength($id){
 
-
+if($this->session->userdata("admin")){
 if($this->Mdl_users->deleteStrength($id)){
 			       echo "Delete Strength Successful";
 				}
 			   else{
 			   	echo "Delete Strength not Successful";
 			   }
+			   }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 
 
 public function contact(){
-
+if($this->session->userdata("admin")){
 		  if (strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
 		  	
 		  
@@ -397,41 +554,61 @@ public function contact(){
               $this->load->view('footer');
 
 		}
+		}
+		else{
+		redirect('users/login');
+	}
     }
 
 
 
 public function contactUpdateShow(){
 
+if($this->session->userdata("admin")){
  $data['data']=$this->Mdl_users->contactUpdateShow();
  $this->load->view('header');
   $this->load->view('contactupdate',$data);
   $this->load->view('footer');
+  }
+		else{
+		redirect('users/login');
+	}
 }
 
 
 public function updateContact($id){
 
+if($this->session->userdata("admin")){
 $data=$this->input->post();
 if($this->Mdl_users->updateContact($id,$data)){
-			       echo "Update Contact Successful";
+			       //echo "Update Contact Successful";
+	             redirect('users/admin');
 				}
 			   else{
 			   	echo "Update Contact  not Successful";
 			   }
+  }
+		else{
+		redirect('users/login');
+	}			   
 }
 
 
 
 public function deleteContact($id){
 
-
+if($this->session->userdata("admin")){
 if($this->Mdl_users->deleteContact($id)){
 			       echo "Delete Contact Successful";
 				}
 			   else{
 			   	echo "Delete Contact not Successful";
 			   }
+
+			    }
+		else{
+		redirect('users/login');
+	}
 }
 
 
@@ -446,10 +623,14 @@ public function contactUs(){
 		  
 			  $data=$this->input->post();
 						if($this->Mdl_users->insertContactUs($data)){
-					       echo "Your message has been sent to us";
+					       
+					       $this->session->set_flashdata('msg', 'Your message has been sent to us');
+					       redirect(base_url());
 						}
 					   else{
-					   	echo "There was an error sending your message";
+					   	$this->session->set_flashdata('msg', 'There was an error sending your message');
+					       redirect(base_url());
+					   
 					   }
 		}
 		else{
@@ -462,7 +643,7 @@ public function contactUs(){
 
 public function contactUsShow(){
 
- $data['data']=$this->Mdl_users->contactUsShow();
+ $data['data']=$this->Mdl_users->contactUpdateShow();
  $this->load->view('header/header');
   $this->load->view('contactUs',$data);
   $this->load->view('header/footer');

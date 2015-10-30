@@ -392,7 +392,8 @@ if($this->db->where('rpi_strength_id',$id)->delete('rpi_strength')){
 
 
 public function updateContact($id,$data){
-
+  /*echo $data['contact_number'];
+  die();*/
 
  $data = [
             'rpi_contact_person' => $data['contact_person'],
