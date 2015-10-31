@@ -32,7 +32,7 @@
 	
 	<div class="container">
 	<?php if($this->session->flashdata('msg')){ ?>
-	<?php  echo ' <div class="alert alert-success" role="alert">'.$this->session->flashdata('msg').'</div>';}?>
+	<?php  echo ' <div style="text-align: center;" class="alert alert-success" role="alert">'.$this->session->flashdata('msg').'</div>';}?>
 	<div class="row">
 	<?php /*echo "<pre/>";print_r($data)*/ ?>
 								<div class="col-md-6">

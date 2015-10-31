@@ -10,7 +10,7 @@
 
 ?>  
 <?php if($this->session->flashdata('msg')){ ?>
-  <?php  echo ' <div class="alert alert-success " role="alert">'.$this->session->flashdata('msg').'</div>'; }?>
+  <?php  echo ' <div style="text-align: center;" class="alert alert-success " role="alert">'.$this->session->flashdata('msg').'</div>'; }?>
 <script src="//code.jquery.com/jquery-1.9.1.min.js"></script> 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet"> 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> 

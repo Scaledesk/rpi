@@ -138,7 +138,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus </p>        
             </div>
             <div class="col-md-3">
-                <img class="img-responsive" src="<?php echo base_url();?>assets\img\6.png" alt="">            
+                <img class="img-responsive" src="<?php echo base_url();?>assets\img\6.jpg" alt="">            
                 <h3>Medical / Pharma Research </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus </p>        
             </div>

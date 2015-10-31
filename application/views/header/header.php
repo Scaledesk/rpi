@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +38,12 @@
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?php echo base_url();?>">Home</a></li> 
-						<li><a href="<?php echo base_url().'users/aboutShow';?>">About Us</a></li>
-						<li><a href="<?php echo base_url().'users/servicesShow';?>">Services</a></li>
-                        <li><a href="<?php echo base_url().'users/researchShow';?>">Research</a></li>
-                        <li><a href="<?php echo base_url().'users/strengthShow';?>">Strength</a></li>
-                        <li><a href="<?php echo base_url().'users/contactUsShow';?>">Contact</a></li>
+                        <li <?php if($id==7){echo 'class="active"';}?> ><a href="<?php echo base_url();?>">Home</a></li> 
+						<li <?php if($id==1){echo 'class="active"';}?> ><a href="<?php echo base_url().'users/aboutShow';?>">About Us</a></li>
+						<li <?php if($id==2){echo 'class="active"';}?> ><a href="<?php echo base_url().'users/servicesShow';?>">Services</a></li>
+                        <li <?php if($id==3){echo 'class="active"';}?> ><a href="<?php echo base_url().'users/researchShow';?>">Research</a></li>
+                        <li <?php if($id==5){echo 'class="active"';}?> ><a href="<?php echo base_url().'users/strengthShow';?>">Strength</a></li>
+                        <li <?php if($id==0){echo 'class="active"';}?> ><a href="<?php echo base_url().'users/contactUsShow';?>">Contact</a></li>
                     </ul>
                 </div>
             </div>

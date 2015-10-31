@@ -705,9 +705,9 @@ public function contactUs(){
     }
 
 public function contactUsShow(){
-
+ $data['id']=0;
  $data['data']=$this->Mdl_users->contactUpdateShow();
- $this->load->view('header/header');
+ $this->load->view('header/header',$data);
   $this->load->view('contactUs',$data);
   $this->load->view('header/footer');
 }
@@ -716,48 +716,54 @@ public function contactUsShow(){
 
 
 public function aboutShow(){
+	 $data['id']=1;
 	$data['about']=$this->Mdl_users->getAbout();
-	$this->load->view('header/header');
+	$this->load->view('header/header',$data);
 	$this->load->view('theme/about',$data);
 	$this->load->view('header/footer');
 }
 
 public function servicesShow(){
-
+$data['id']=2;
 $data['services']=$this->Mdl_users->getServices();
-	$this->load->view('header/header');
+	$this->load->view('header/header',$data);
 	$this->load->view('theme/services',$data);
 	$this->load->view('header/footer');
 
 }
 public function researchShow(){
+	$data['id']=3;
 	$data['research']=$this->Mdl_users->getResearch();
-	$this->load->view('header/header');
+	$this->load->view('header/header',$data);
 	$this->load->view('theme/research',$data);
 	$this->load->view('header/footer');
 }
 public function researchToolShow(){
+	$data['id']=4;
 	$data['researchTool']=$this->Mdl_users->getResearchTool();
-	$this->load->view('header/header');
+	$this->load->view('header/header',$data);
 	$this->load->view('theme/research_tool',$data);
 	$this->load->view('header/footer');
 }
 public function strengthShow(){
+	$data['id']=5;
 	$data['strength']=$this->Mdl_users->getStrength();
-	$this->load->view('header/header');
+	$this->load->view('header/header',$data);
 	$this->load->view('theme/strength',$data);
 	$this->load->view('header/footer');
 }
 public function capabilitiesShow(){
+	$data['id']=6;
 	$data['strength']=$this->Mdl_users->getStrength();
-	$this->load->view('header/header');
+	$this->load->view('header/header',$data);
 	$this->load->view('theme/strength',$data);
 	$this->load->view('header/footer');
 }
 
 public function home(){
+	$data['id']=7;
   $data['about']=$this->Mdl_users->getAbout();
-	$this->load->view('header/header');
+	$this->load->view('header/header',$data);
 	$this->load->view('theme/index',$data);
 	$this->load->view('header/footer');
 }
