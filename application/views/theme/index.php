@@ -9,13 +9,11 @@
 ?>
 
 
-
-<section id="featured">
+<?php if($this->session->flashdata('msg')){ ?>
+  <?php  echo ' <div class="alert alert-success " role="alert">'.$this->session->flashdata('msg').'</div>'; }?>
+<section id="featured" >
 	 
-   <?php if($this->session->flashdata('msg')){
-
-   echo '<div style="color:green;font-size:18px; height:50px;width:500px; margin:0px auto;">'.$this->session->flashdata('msg').'</div>';
-  } ?>
+  
 	<!-- Slider -->
         <div id="main-slider" class="flexslider">
             <ul class="slides">
