@@ -24,13 +24,15 @@ if($this->session->userdata("admin")){
 		if(strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post'){
 
 			if($this->_insertAbout($this->input->post())){
-				echo "update  Successful";
-				redirect(base_url().'users/admin');
+				
+				$this->session->set_flashdata('msg', 'Your About updated Successfully . ');
+		      	redirect(base_url().'users/admin');
 			}
 			else{
 
-				echo "update not Successful";
-				redirect(base_url().'users/admin');
+				
+				$this->session->set_flashdata('msg', 'Your about update not successful please try again ?');
+		   	redirect(base_url().'users/admin');
 			}
 		}
 
@@ -64,7 +66,7 @@ public function login(){
 
 		   }
 		   else{
-		   	 $this->session->set_flashdata('msg', 'Your Users and password not match');
+		   	 $this->session->set_flashdata('msg', 'your users id and password not match. please try again.');
 		   	redirect(base_url().'users/login');
 		   }
 
@@ -120,12 +122,13 @@ public function services(){
 	if (strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post') {
 		     $data=$this->input->post();
 				if($this->Mdl_users->insertServices($data)){
-			       echo "Add Services Successful";
+			       echo "Your Services  inserted Successfully ";
 			       redirect('users/services');
 				}
 			   else{
-			   	echo "Add Services  not Successful";
-			   	redirect('users/servicesView');
+			   
+			   	$this->session->set_flashdata('msg', 'Your Services not inserted Successfully please try again ');
+ 	            redirect('users/servicesView');
 			   }
 
 			}
@@ -160,12 +163,14 @@ if($this->session->userdata("admin")){
 
 $data=$this->input->post();
 if($this->Mdl_users->updateServices($id,$data)){
-			       echo "Update Services Successful";
-			       redirect('users/servicesView');
+
+			       	$this->session->set_flashdata('msg', ' Your  Services updated Successfully ');
+ 	            redirect('users/servicesView');
 				}
 			   else{
-			   	echo "Update Services  not Successful";
-			   	redirect('users/servicesView');
+			   		$this->session->set_flashdata('msg', 'Your  Services updated not Successfully. Please Try Again');
+ 	            redirect('users/servicesView');
+			   
 			   }
 			   }
 	else{
@@ -177,12 +182,14 @@ public function deleteServices($id){
 if($this->session->userdata("admin")){
 
 if($this->Mdl_users->deleteServices($id)){
-			       echo "Delete Services Successful";
-			       redirect('users/servicesView');
+			       
+			       $this->session->set_flashdata('msg', ' Your  Services Deleted Successfully. ');
+ 	            redirect('users/servicesView');
 				}
 			   else{
-			   	echo "Delete Services  not Successful";
-			   	redirect('users/servicesView');
+			   	
+			   	 $this->session->set_flashdata('msg', 'Your  Services Deleted not Successfully. Please Try Again');
+ 	            redirect('users/servicesView');
 			   }
 			}
 			   else{
@@ -201,11 +208,14 @@ if($this->session->userdata("admin")){
 		  
 			  $data=$this->input->post();
 						if($this->Mdl_users->insertResearch($data)){
-					       echo "Add Research Successful";
-					       redirect('users/getResearch');
+					       
+					        $this->session->set_flashdata('msg', 'Your  Research inserted Successfully.');
+ 	                        redirect('users/getResearch');
 						}
 					   else{
-					   	echo "Add Research  not Successful";
+					   
+					   	 $this->session->set_flashdata('msg', 'Your  Research inserted not Successfully. Please Try Again');
+ 	                    redirect('users/getResearch');
 					   }
 		}
 		else{
@@ -254,11 +264,15 @@ public function updateResearch($id){
 
 $data=$this->input->post();
 if($this->Mdl_users->updateResearch($id,$data)){
-			       echo "Update Research Successful";
-			       redirect('users/getResearch');
+			       
+			        $this->session->set_flashdata('msg', ' Your  Research updated Successfully. ');
+ 	                    redirect('users/getResearch');
 				}
 			   else{
-			   	echo "Update Research  not Successful";
+			   
+
+			        	 $this->session->set_flashdata('msg', 'Your  Research updated not Successfully. Please Try Again');
+ 	                    redirect('users/getResearch');
 			   }
 
 			    }
@@ -274,11 +288,14 @@ public function deleteResearch($id){
 if($this->session->userdata("admin")){
 
 if($this->Mdl_users->deleteResearch($id)){
-			       echo "Delete Research Successful";
-			       redirect('users/getResearch');
+			       
+			        $this->session->set_flashdata('msg', 'Your  Research Delete Successfully.');
+ 	                    redirect('users/getResearch');
 				}
 			   else{
-			   	echo "Delete Research  not Successful";
+			  
+			   	 $this->session->set_flashdata('msg', 'Your  Research Delete not Successfully. Please Try Again');
+ 	                    redirect('users/getResearch');
 			   }
 
 			    }
@@ -297,11 +314,14 @@ if($this->session->userdata("admin")){
 		  
 			  $data=$this->input->post();
 						if($this->Mdl_users->insertResearchTool($data)){
-					       echo "Add Research Successful";
-					       redirect('users/getResearchTool');
+					       
+					        $this->session->set_flashdata('msg', 'Your  Research Tool inserted Successfully.');
+ 	                    redirect('users/getResearchTool');
 						}
 					   else{
-					   	echo "Add Research  not Successful";
+					   
+					   	 $this->session->set_flashdata('msg', 'Your  Research Tool inserted not Successfully. Please Try Again');
+ 	                    redirect('users/getResearchTool');
 					   }
 		}
 		else{
@@ -345,11 +365,14 @@ public function updateResearchTool($id){
 if($this->session->userdata("admin")){
 $data=$this->input->post();
 if($this->Mdl_users->updateResearchTool($id,$data)){
-			       echo "Update Research Successful";
-			       redirect('users/getResearchTool');
+			      
+			        $this->session->set_flashdata('msg', 'Your  Research Tool updated Successfully.');
+ 	                    redirect('users/getResearchTool');
 				}
 			   else{
-			   	echo "Update Research  not Successful";
+			   
+			   	 $this->session->set_flashdata('msg', 'Your  Research Tool inserted not Successfully. Please Try Again');
+ 	                    redirect('users/getResearchTool');
 			   }
 
 			   }
@@ -364,11 +387,15 @@ public function deleteResearchTool($id){
 
 if($this->session->userdata("admin")){
 if($this->Mdl_users->deleteResearchTool($id)){
-			       echo "Delete Research Successful";
-			       redirect('users/getResearchTool');
+			       
+			       $this->session->set_flashdata('msg', 'Your  Research Tool Deleted Successfully. ');
+ 	                    redirect('users/getResearchTool');
 				}
 			   else{
-			   	echo "Delete Research  not Successful";
+
+			       $this->session->set_flashdata('msg', 'Your  Research Tool Deleted not Successfully. Please Try Again');
+ 	                    redirect('users/getResearchTool');
+			   	
 			   }
 			      }
 		else{
@@ -386,10 +413,14 @@ public function capabilities(){
 		  
 			  $data=$this->input->post();
 						if($this->Mdl_users->insertCapabilities($data)){
-					       echo "Add Capabilities Successful";
+					     
+                         $this->session->set_flashdata('msg', 'Your  Capabilities inserted Successfully.');
+ 	                    redirect('users/capabilities');
 						}
 					   else{
-					   	echo "Add Capabilities  not Successful";
+					   	
+					   	$this->session->set_flashdata('msg', 'Your  Capabilities inserted not Successfully. Please Try Again');
+ 	                    redirect('users/capabilities');
 					   }
 		}
 		else{
@@ -425,10 +456,14 @@ public function updateCapabilities($id){
 if($this->session->userdata("admin")){
 $data=$this->input->post();
 if($this->Mdl_users->updateCapabilities($id,$data)){
-			       echo "Update Capabilities Successful";
+			     
+			       	$this->session->set_flashdata('msg', 'Your  Capabilities updated Successfully. ');
+ 	                    redirect('users/capabilities');
 				}
 			   else{
-			   	echo "Update Capabilities  not Successful";
+			   	$this->session->set_flashdata('msg', 'Your  Capabilities not updated Successfully . Please Try Again');
+ 	                    redirect('users/capabilities');
+			   	
 			   }
 			   }
 		else{
@@ -442,10 +477,14 @@ public function deleteCapabilities($id){
 
 if($this->session->userdata("admin")){
 if($this->Mdl_users->deleteCapabilities($id)){
-			       echo "Delete Capabilities Successful";
+			     
+			       $this->session->set_flashdata('msg', 'Your  Capabilities Deleted Successfully. ');
+ 	                    redirect('users/capabilities');
 				}
 			   else{
-			   	echo "Delete Capabilities  not Successful";
+			   	
+			   	$this->session->set_flashdata('msg', 'Your  Capabilities not Deleted Successfully. Please Try Again');
+ 	                    redirect('users/capabilities');
 			   }
 			    }
 		else{
@@ -464,10 +503,14 @@ if($this->session->userdata("admin")){
 		  
 			  $data=$this->input->post();
 						if($this->Mdl_users->insertStrength($data)){
-					       echo "Add Strength Successful";
+					      
+					       	$this->session->set_flashdata('msg', 'Your  Strength  inserted Successfully. ');
+ 	                        redirect('users/strength');
 						}
 					   else{
-					   	echo "Add Strength  not Successful";
+					  
+					   		$this->session->set_flashdata('msg', 'Your  Strength not inserted Successfully. Please Try Again');
+ 	                        redirect('users/strength');
 					   }
 		}
 		else{
@@ -502,11 +545,15 @@ public function updateStrength($id){
 if($this->session->userdata("admin")){
 $data=$this->input->post();
 if($this->Mdl_users->updateStrength($id,$data)){
-			       echo "Update Strength Successful";
-			       redirect(base_url().'users/admin');
+			       
+
+			       $this->session->set_flashdata('msg', 'Your  Strength  updated Successfully.');
+ 	                        redirect('users/strength');
 				}
 			   else{
-			   	echo "Update Strength  not Successful";
+			   
+			   	 $this->session->set_flashdata('msg', 'Your  Strength not  updated Successfully. Please Try Again');
+ 	                        redirect('users/strength');
 			   }
 
  }
@@ -521,10 +568,14 @@ public function deleteStrength($id){
 
 if($this->session->userdata("admin")){
 if($this->Mdl_users->deleteStrength($id)){
-			       echo "Delete Strength Successful";
+			       
+			           $this->session->set_flashdata('msg', 'Your  Strength  Deleted Successfully. ');
+ 	                        redirect('users/strength');
 				}
 			   else{
-			   	echo "Delete Strength not Successful";
+			   	
+			   	 $this->session->set_flashdata('msg', 'Your  Strength not  Deleted Successfully. Please Try Again');
+ 	                        redirect('users/strength');
 			   }
 			   }
 		else{
@@ -542,10 +593,14 @@ if($this->session->userdata("admin")){
 		  
 			  $data=$this->input->post();
 						if($this->Mdl_users->insertContact($data)){
-					       echo "Add Contact Successful";
+					      
+					        $this->session->set_flashdata('msg', 'Your  Contact   inserted Successfully. ');
+ 	                        redirect('users/strength');
 						}
 					   else{
-					   	echo "Add Contact  not Successful";
+					   	
+					   	 $this->session->set_flashdata('msg', 'Your  Contact not   inserted Successfully. Please Try Again');
+ 	                        redirect('users/strength');
 					   }
 		}
 		else{
@@ -581,11 +636,15 @@ public function updateContact($id){
 if($this->session->userdata("admin")){
 $data=$this->input->post();
 if($this->Mdl_users->updateContact($id,$data)){
-			       //echo "Update Contact Successful";
-	             redirect('users/admin');
+			       
+	              $this->session->set_flashdata('msg', 'Your  Contact   updated Successfully. ');
+ 	                        redirect('users/admin');
 				}
 			   else{
-			   	echo "Update Contact  not Successful";
+			   
+			   	 $this->session->set_flashdata('msg', 'Your  Contact  not updated Successfully. Please Try Again');
+ 	                        redirect('users/contactUpdateShow');
+
 			   }
   }
 		else{
@@ -599,10 +658,14 @@ public function deleteContact($id){
 
 if($this->session->userdata("admin")){
 if($this->Mdl_users->deleteContact($id)){
-			       echo "Delete Contact Successful";
+			     
+			        $this->session->set_flashdata('msg', 'Your  Contact   Deleted Successfully.');
+ 	                        redirect('users/contact');
 				}
 			   else{
-			   	echo "Delete Contact not Successful";
+			  
+			   	 $this->session->set_flashdata('msg', 'Your  Contact   not Deleted Successfully. Please Try Again');
+ 	                        redirect('users/contact');
 			   }
 
 			    }

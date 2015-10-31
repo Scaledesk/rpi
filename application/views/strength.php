@@ -7,7 +7,10 @@
  */ 
 
 ?>
+<?php if($this->session->flashdata('msg')){
 
+   echo '<div style="color:green;font-size:18px; height:50px;width:500px; margin:0px auto;">'.$this->session->flashdata('msg').'</div>';
+  } ?>
 <script src="//code.jquery.com/jquery-1.9.1.min.js"></script> 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet"> 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> 

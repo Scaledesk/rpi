@@ -22,7 +22,7 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
     <div class="template-page-wrapper">
     <?php if($this->session->flashdata('msg')){
 
-   echo '<div style="color:green;font-size:18px; height:50px;width:500px; border:2px solid green">'.$this->session->flashdata('msg').'</div>';
+   echo '<div style="color:green;font-size:18px; height:50px;width:500px; margin:0px auto;">'.$this->session->flashdata('msg').'</div>';
   } ?>
       <form class="form-horizontal templatemo-signin-form" role="form" action="<?php echo base_url().'users/login'; ?>" method="POST">
         <div class="form-group">

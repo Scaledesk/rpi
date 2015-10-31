@@ -24,7 +24,7 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
           <span class="icon-bar"> </span>
         </button> 
       </div>  
-      <div style="float: right;"><a href="<?php echo base_url().'users/logout';?>" style=" text-decoration: width: 200px; blink;color:white;"><h4>Logout</h4></a> </div>
+      <div style="float: right; width: 200px;"><a href="<?php echo base_url().'users/logout';?>" style=" text-decoration:non;  text-align: left;  blink;color:#7F7F7F;"><h4>Logout</h4></a> </div>
     </div>
     <div class="template-page-wrapper">
       <div class="navbar-collapse collapse templatemo-sidebar">
